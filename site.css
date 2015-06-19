@@ -23,3 +23,11 @@ a, a:hover, a:visited {
 .navbar .nav > li > a {
     text-shadow:none;
 }
+
+.navbar-toggle .icon-bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background-color: #cccccc;
+  border-radius: 1px;
+}
