@@ -31,3 +31,10 @@ a, a:hover, a:visited {
   background-color: #cccccc;
   border-radius: 1px;
 }
+
+.post {
+    padding-top: 10px;
+    padding-right: 40px;
+    padding-bottom: 10px;
+    padding-left: 40px;
+}
