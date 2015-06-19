@@ -1,0 +1,25 @@
+.navbar-clear {
+    background: none !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+}
+
+.navbar .nav > li > a:focus,
+.navbar .nav > li > a:hover {
+     color: #333333;
+     text-decoration: none;
+     background-color: transparent;
+ }
+
+.black {
+    color: black !important;
+}
+
+a, a:hover, a:visited {
+    text-decoration: none !important;
+}
+
+.navbar .nav > li > a {
+    text-shadow:none;
+}
