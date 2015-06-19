@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <!-- JQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
         <!-- Bootstrap CDN -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
@@ -8,6 +11,9 @@
 
         <!-- Site CSS -->
         <link rel="stylesheet" href="site.css" />
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>
             D
@@ -21,8 +27,13 @@
                     <nav class="navbar navbar-clear">
                         <div class="navbar-header">
                             <a class="black" href="index.html"><h3>Danny Ho</h3></a>
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                                <span class="icon-bar black"></span>
+                                <span class="icon-bar black"></span>
+                                <span class="icon-bar black"></span>
+                            </button>
                         </div>
-                        <div class="navbar-clear">
+                        <div class="navbar-collapse collapse navbar-clear" id="myNavbar">
                             <ul class="nav navbar-nav navbar-right">
                                 <li><a class="black" href="#">About</a></li>
                                 <li>
@@ -33,12 +44,15 @@
                     </nav>
                 </div>
             </div>
+        </div>
+
+        <div class="container">
             <div class="col-md-8 col-md-offset-2">
                 <div class="row">
                     <h4>Partial Pages in ASP.NET Web Forms</h4>
                     <p>
                         Was tasked with implementing a Boostrap modal in a ASP.NET Web Forms project. Caveat was since the modal was used in multiple web pages, it needed to be a single page for the modal and other web pages
-                        would reference it to reduce duplication. 
+                        would reference it to reduce duplication.
                     </p>
                     <p>
                         Did some research and found a few suggested solutions using JQuery <code>html()</code> function or <code>load()</code> function to direclty inject html into the page. This would work if the modal was all
