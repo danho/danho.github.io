@@ -50,35 +50,37 @@
             <div class="col-md-8 col-md-offset-2">
                 <div class="row">
                     <h4>Partial Pages in ASP.NET Web Forms</h4>
-                    <p>
-                        Was tasked with implementing a Boostrap modal in a ASP.NET Web Forms project. Caveat was since the modal was used in multiple web pages, it needed to be a single page for the modal and other web pages
-                        would reference it to reduce duplication.
-                    </p>
-                    <p>
-                        Did some research and found a few suggested solutions using JQuery <code>html()</code> function or <code>load()</code> function to direclty inject html into the page. This would work if the modal was all
-                        static text but Bootstrap modals also require JavaScript to be interactive. In addition, when you use these two functions to inject html into the page after the page has been loaded, JQuery would not be
-                        able to retrieve the id's generated.
-                    </p>
-                    <p>
-                        A better solution is something similar to ASP.NET MVC partial pages. You can use the <code>#include</code> directive to insert the content of another page on the server side so the client would receive a
-                        sinlge page with all the content, instead of loading the content using JavaScript on the client side. So you would have one page for the HTML of the modal and one page for the JavaScript for the modal. Example:
-                        <br />
-                        <br />
-                        <code><span class="token punctuation"><</span>script type="text/javascript"<span class="token punctuation">></span></code>
-                        <br />
-                        &nbsp;&nbsp;<code><span class="token punctuation"><</span>!--#include file ="/js/modal.js"--<span class="token punctuation">></span></code>
-                        <br />
-                        <code><span class="token punctuation"><</span>/script<span class="token punctuation">></span></code>
-                        <br />
-                        <br />
-                        <code><span class="token punctuation"><</span>div<span class="token punctuation">></span></code>
-                        <br />
-                        &nbsp;&nbsp;<code><span class="token punctuation"><</span>!--#include file ="/modal.html"--<span class="token punctuation">></span></code>
-                        <br />
-                        <code><span class="token punctuation"><</span>/div<span class="token punctuation">></span></code>
-                    </p>
+                    <div class="post">
+                        <p>
+                            Was tasked with implementing a Boostrap modal in a ASP.NET Web Forms project. Caveat was since the modal was used in multiple web pages, it needed to be a single page for the modal and other web pages
+                            would reference it to reduce duplication.
+                        </p>
+                        <p>
+                            Did some research and found a few suggested solutions using JQuery <code>html()</code> function or <code>load()</code> function to direclty inject html into the page. This would work if the modal was all
+                            static text but Bootstrap modals also require JavaScript to be interactive. In addition, when you use these two functions to inject html into the page after the page has been loaded, JQuery would not be
+                            able to retrieve the id's generated.
+                        </p>
+                        <p>
+                            A better solution is something similar to ASP.NET MVC partial pages. You can use the <code>#include</code> directive to insert the content of another page on the server side so the client would receive a
+                            sinlge page with all the content, instead of loading the content using JavaScript on the client side. So you would have one page for the HTML of the modal and one page for the JavaScript for the modal. Example:
+                            <br />
+                            <br />
+                            <code><span class="token punctuation"><</span>script type="text/javascript"<span class="token punctuation">></span></code>
+                            <br />
+                            &nbsp;&nbsp;<code><span class="token punctuation"><</span>!--#include file ="/js/modal.js"--<span class="token punctuation">></span></code>
+                            <br />
+                            <code><span class="token punctuation"><</span>/script<span class="token punctuation">></span></code>
+                            <br />
+                            <br />
+                            <code><span class="token punctuation"><</span>div<span class="token punctuation">></span></code>
+                            <br />
+                            &nbsp;&nbsp;<code><span class="token punctuation"><</span>!--#include file ="/modal.html"--<span class="token punctuation">></span></code>
+                            <br />
+                            <code><span class="token punctuation"><</span>/div<span class="token punctuation">></span></code>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
-</body>
+    </body>
 </html>
