@@ -125,32 +125,33 @@
                 <p>
                     If you changed the name of a key in you model, for example from just <code>Id</code> to <code>ReviewId</code>
                     and then try to add a migration and update the database, Entity Framework might throw an exception like
+                    <br />
                     <code>Multiple identity columns specified for table '...'. Only one identity column per table is allowed.</code>
                 </p>
                 <p>
                     The problem is not with your key name change, it is with the order of operations Entity Framework handles this.
                     If you go to the migration file Entity Framework generated, you will see smething like this
                     <br />
-                    <code>public override void Up()</code>
-                    <code>{</code>
-                    <code>&nbsp;&nbsp;AddColumn(..., "ReviewId", c => c.Int(nullable: false, identity: true));</code>
-                    <code>&nbsp;&nbsp;DropPrimaryKey(..., new[] { "Id" });</code>
-                    <code>&nbsp;&nbsp;AddPrimaryKey(..., new[] { "ReviewId" });</code>
-                    <code>&nbsp;&nbsp;DropColumn(..., "Id");</code>
-                    <cdoe>...</cdoe>
-                    <code>}</code>
+                    <code>public override void Up()</code><br />
+                    <code>{</code><br />
+                    <code>&nbsp;&nbsp;AddColumn(..., "ReviewId", c => c.Int(nullable: false, identity: true));</code><br />
+                    <code>&nbsp;&nbsp;DropPrimaryKey(..., new[] { "Id" });</code><br />
+                    <code>&nbsp;&nbsp;AddPrimaryKey(..., new[] { "ReviewId" });</code><br />
+                    <code>&nbsp;&nbsp;DropColumn(..., "Id");</code><br />
+                    <cdoe>...</cdoe><br />
+                    <code>}</code><br />
                     <br />
                     This might look OK since you are dropping the primary key and then adding a new one but the trick is that you need
                     to drop the primary key and the column as well. So reordering the operations like this will work:
                     <br />
-                    <code>public override void Up()</code>
-                    <code>{</code>
-                    <code>&nbsp;&nbsp;DropPrimaryKey(..., new[] { "Id" });</code>
-                    <code>&nbsp;&nbsp;DropColumn(..., "Id");</code>
-                    <code>&nbsp;&nbsp;AddColumn(..., "ReviewId", c => c.Int(nullable: false, identity: true));</code>
-                    <code>&nbsp;&nbsp;AddPrimaryKey(..., new[] { "ReviewId" });</code>
-                    <cdoe>...</cdoe>
-                    <code>}</code>
+                    <code>public override void Up()</code><br />
+                    <code>{</code><br />
+                    <code>&nbsp;&nbsp;DropPrimaryKey(..., new[] { "Id" });</code><br />
+                    <code>&nbsp;&nbsp;DropColumn(..., "Id");</code><br />
+                    <code>&nbsp;&nbsp;AddColumn(..., "ReviewId", c => c.Int(nullable: false, identity: true));</code><br />
+                    <code>&nbsp;&nbsp;AddPrimaryKey(..., new[] { "ReviewId" });</code><br />
+                    <cdoe>...</cdoe><br />
+                    <code>}</code><br />
                 </p>
             </div>
         </div>
