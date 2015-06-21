@@ -138,7 +138,7 @@
                     <code>&nbsp;&nbsp;DropPrimaryKey(..., new[] { "Id" });</code><br />
                     <code>&nbsp;&nbsp;AddPrimaryKey(..., new[] { "ReviewId" });</code><br />
                     <code>&nbsp;&nbsp;DropColumn(..., "Id");</code><br />
-                    <cdoe>...</cdoe><br />
+                    <code>&nbsp;&nbsp;D...</code><br />
                     <code>}</code><br />
                     <br />
                     This might look OK since you are dropping the primary key and then adding a new one but the trick is that you need
@@ -150,7 +150,7 @@
                     <code>&nbsp;&nbsp;DropColumn(..., "Id");</code><br />
                     <code>&nbsp;&nbsp;AddColumn(..., "ReviewId", c => c.Int(nullable: false, identity: true));</code><br />
                     <code>&nbsp;&nbsp;AddPrimaryKey(..., new[] { "ReviewId" });</code><br />
-                    <cdoe>...</cdoe><br />
+                    <code>&nbsp;&nbsp;D...</code><br />
                     <code>}</code><br />
                 </p>
             </div>
