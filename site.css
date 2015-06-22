@@ -5,6 +5,10 @@
     -webkit-box-shadow: none !important;
 }
 
+.navbar-padding {
+    padding-top: 10px;
+}
+
 .navbar .nav > li > a:focus,
 .navbar .nav > li > a:hover {
      color: #333333;
