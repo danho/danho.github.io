@@ -172,7 +172,7 @@
                     web controls. A web control like
                     <br />
                     <br />
-                    <code><asp:HiddenField ID="hf1"</code>
+                    <code><span class="token punctuation"><</span>asp:HiddenField ID="hf1"<span class="token punctuation">></span></code>
                     <br />
                     <br />
                     can have a ID like
@@ -189,9 +189,7 @@
                 <p>
                     ASP.NET however does offer the ClientID value for web controls. So this can be solved easily by using server side code blocks to inject the ID into JavaScript or JQuery, example:
                     <br />
-                    <code>
-                        $('#<%= hf1.ClientID %>').val();
-                    </code>
+                    <code>$('#<%= hf1.ClientID %>').val();</code>
                 </p>
             </div>
         </div>
