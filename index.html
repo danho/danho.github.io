@@ -159,5 +159,37 @@
             </div>
         </div>
     </div>
+    <div class="container">
+        <div class="col-md-8 col-md-offset-2">
+            <a data-toggle="collapse" href="#collapse4" aria-expanded="false" aria-controls="collapse4" class="black">
+                <h4>Use embedded code blocks in JavaScript to retrieve web control IDs</h4>
+            </a>
+            <div class="collapse" id="collapse4">
+                <br />
+                <p>
+                    ASP.NET generates the ID's of web controls for the client dynamically depending on containers around the
+                    web controls. A web control like
+                    <br />
+                    <code><asp:HiddenField ID="hf1"</code>
+                    <br />
+                    can have a ID like
+                    <br/>
+                    <code>ct100_HiddenField1_hf1</code>
+                    <br />
+                </p>
+                <p>
+                    Because the ID is generated dynamically, if I add another container around the web control, the ID would
+                    change. This makes it difficult to get the ID for JavaScript or JQuery since you cannot hard code the ID.
+                </p>
+                <p>
+                    ASP.NET however does offer the ClientID value for web controls. So this can be solved easily by using server side code blocks to inject the ID into JavaScript or JQuery, example:
+                    <br />
+                    <code>
+                        $('#<%= hf1.ClientID %>').val();
+                    </code>
+                </p>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
