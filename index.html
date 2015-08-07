@@ -69,6 +69,16 @@
                     &nbsp;&nbsp;<code>return cache.cache[index];</code>
                     <br />
                     <code><span class="token punctuation">}</span></code>
+                    <br />
+                    <br />
+                    <code>cache(1, "abc");</code>
+                    <br />
+                    &nbsp;&nbsp;<code>> "abc"</code>
+                    <br />
+                    <code>cache(1);</code>
+                    <br />
+                    &nbsp;&nbsp;<code>> "abc"</code>
+                    <br />
                 </p>
                 <p>
                     The <code>cache.cache</code> persists after the function call ends so the next time you call
