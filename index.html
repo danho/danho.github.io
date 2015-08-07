@@ -49,6 +49,33 @@
     </div>
     <div class="container">
         <div class="col-md-8 col-md-offset-2">
+            <a data-toggle="collapse" href="#collapse6" aria-expanded="false" aria-controls="collapse6" class="black">
+                <h4>Always cache frequently queried objects in Javascript</h4>
+            </a>
+            <div class="collapse" id="collapse6">
+                <br />
+                <p>
+                    You should always use some kind of caching in javascript if you can. The goal is to reduce the amount of
+                    calls to the server to increase performance. Any javascript object that will be used more than once should
+                    cached. Below is a simple implementation of a dictionary / cache in javascript.
+                </p>
+                <p>
+                    <code>var cache = function(index, value) <span class="token punctuation">{</span></code>
+                    <code>if (!cache.cache) cache.cache = {};</code>
+                    <code>if (!cache.cache[index]) cache.cache[index] = value;</code>
+                    <code>return cache.cache[index];</code>
+                    <code><span class="token punctuation">}</span></code>
+                </p>
+                <p>
+                    The <code>cache.cache</code> persists after the function call ends so the next time you call
+                    <code>cache(index)</code> it would check if the index has a value.
+                </p>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="container">
+        <div class="col-md-8 col-md-offset-2">
             <a data-toggle="collapse" href="#collapse5" aria-expanded="false" aria-controls="collapse5" class="black">
                 <h4>One more reason to host files locally instead of using a CDN</h4>
             </a>
