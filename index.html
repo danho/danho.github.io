@@ -61,27 +61,28 @@
                     file. Some code below.
                 </p>
                 <p>
-                    <code>public static Byte[] GenerateExcelSheet(DataTable dt)</code>
-                    <code>{</code>
-                        <code>var strWriter = new StringWriter();</code>
-                        <code>var htmlWriter = new HtmlTextWriter(strWriter);</code>
-                        <code>var gv = new GridView();</code>
-                        <code>gv.DataSource = dt;</code>
-                        <code>gv.DataBind();</code>
-                        <code>gv.RenderControl(htmlWriter);</code>
-                        <code>return Encoding.ASCII.GetBytes(strWriter.ToString());</code>
-                    <code>}</code>
-                    
+                    <code>public static Byte[] GenerateExcelSheet(DataTable dt)</code><br />
+                    <code>{</code><br />
+                    &nbsp;&nbsp;<code>var strWriter = new StringWriter();</code><br />
+                    &nbsp;&nbsp;<code>var htmlWriter = new HtmlTextWriter(strWriter);</code><br />
+                    &nbsp;&nbsp;<code>var gv = new GridView();</code><br />
+                    &nbsp;&nbsp;<code>gv.DataSource = dt;</code><br />
+                    &nbsp;&nbsp;<code>gv.DataBind();</code><br />
+                    &nbsp;&nbsp;<code>gv.RenderControl(htmlWriter);</code><br />
+                    &nbsp;&nbsp;<code>return Encoding.ASCII.GetBytes(strWriter.ToString());</code><br />
+                    <code>}</code><br />
+                    <br />
                     ...
-                    <code>var file = GenerateExcelSheet(...);</code>
-                    <code>Response.Clear();</code>
-                    <code>Response.ClearHeaders();</code>
-                    <code>Response.ClearContent();</code>
-                    <code>Response.ContentType = "application/vnd.ms-excel";</code>
-                    <code>Response.AddHeader("content-disposition", "attachment; filename=.xls");</code>
-                    <code>Response.AddHeader("Content-Length", file.Length.ToString());</code>
-                    <code>Response.BinaryWrite(file);</code>
-                    <code>Response.Flush();</code>
+                    <br />
+                    <code>var file = GenerateExcelSheet(...);</code><br />
+                    <code>Response.Clear();</code><br />
+                    <code>Response.ClearHeaders();</code><br />
+                    <code>Response.ClearContent();</code><br />
+                    <code>Response.ContentType = "application/vnd.ms-excel";</code><br />
+                    <code>Response.AddHeader("content-disposition", "attachment; filename=.xls");</code><br />
+                    <code>Response.AddHeader("Content-Length", file.Length.ToString());</code><br />
+                    <code>Response.BinaryWrite(file);</code><br />
+                    <code>Response.Flush();</code><br />
                 </p>
             </div>
         </div>
