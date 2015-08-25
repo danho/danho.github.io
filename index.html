@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
+    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+    
     <!-- Site CSS -->
     <link rel="stylesheet" href="site.css" />
 
@@ -61,7 +63,7 @@
                     file. Some code below.
                 </p>
                 <p>
-                    <code>public static Byte[] GenerateExcelSheet(DataTable dt)</code><br />
+                    <code class="prettyprint">public static Byte[] GenerateExcelSheet(DataTable dt)</code><br />
                     <code>{</code><br />
                     &nbsp;&nbsp;<code>var strWriter = new StringWriter();</code><br />
                     &nbsp;&nbsp;<code>var htmlWriter = new HtmlTextWriter(strWriter);</code><br />
