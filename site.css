@@ -35,3 +35,7 @@ a, a:hover, a:visited {
   background-color: #cccccc;
   border-radius: 1px;
 }
+
+code {
+    background-color: white;
+}
