@@ -51,6 +51,45 @@
     <div class="container">
         <div class="col-md-8 col-md-offset-2">
             <a data-toggle="collapse" href="#collapse5" aria-expanded="false" aria-controls="collapse5" class="black">
+                <h4>Create excel file with C# without Interop or Excel</h4>
+            </a>
+            <div class="collapse" id="collapse5">
+                <br />
+                <p>
+                    I don't want Excel installed on the servers or have to be dependent on extensions like Interop
+                    or OpenXML. For simple Excel spreadsheets you can just use a DataTable and convert that to a Excel
+                    file. Some code below.
+                </p>
+                <p>
+                    <code>public static Byte[] GenerateExcelSheet(DataTable dt)</code>
+                    <code>{</code>
+                        <code>var strWriter = new StringWriter();</code>
+                        <code>var htmlWriter = new HtmlTextWriter(strWriter);</code>
+                        <code>var gv = new GridView();</code>
+                        <code>gv.DataSource = dt;</code>
+                        <code>gv.DataBind();</code>
+                        <code>gv.RenderControl(htmlWriter);</code>
+                        <code>return Encoding.ASCII.GetBytes(strWriter.ToString());</code>
+                    <code>}</code>
+                    
+                    ...
+                    <code>var file = GenerateExcelSheet(...);</code>
+                    <code>Response.Clear();</code>
+                    <code>Response.ClearHeaders();</code>
+                    <code>Response.ClearContent();</code>
+                    <code>Response.ContentType = "application/vnd.ms-excel";</code>
+                    <code>Response.AddHeader("content-disposition", "attachment; filename=.xls");</code>
+                    <code>Response.AddHeader("Content-Length", file.Length.ToString());</code>
+                    <code>Response.BinaryWrite(file);</code>
+                    <code>Response.Flush();</code>
+                </p>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="container">
+        <div class="col-md-8 col-md-offset-2">
+            <a data-toggle="collapse" href="#collapse5" aria-expanded="false" aria-controls="collapse5" class="black">
                 <h4>One more reason to host files locally instead of using a CDN</h4>
             </a>
             <div class="collapse" id="collapse5">
@@ -68,7 +107,7 @@
             </div>
         </div>
     </div>
-    <br>
+    <br />
     <div class="container">
         <div class="col-md-8 col-md-offset-2">
             <a data-toggle="collapse" href="#collapse1" aria-expanded="false" aria-controls="collapse1" class="black">
