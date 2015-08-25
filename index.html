@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
+    
+    <!-- code-prettify -->
     <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
     
     <!-- Site CSS -->
@@ -64,27 +65,27 @@
                 </p>
                 <p>
                     <code class="prettyprint">public static Byte[] GenerateExcelSheet(DataTable dt)</code><br />
-                    <code>{</code><br />
-                    &nbsp;&nbsp;<code>var strWriter = new StringWriter();</code><br />
-                    &nbsp;&nbsp;<code>var htmlWriter = new HtmlTextWriter(strWriter);</code><br />
-                    &nbsp;&nbsp;<code>var gv = new GridView();</code><br />
-                    &nbsp;&nbsp;<code>gv.DataSource = dt;</code><br />
-                    &nbsp;&nbsp;<code>gv.DataBind();</code><br />
-                    &nbsp;&nbsp;<code>gv.RenderControl(htmlWriter);</code><br />
-                    &nbsp;&nbsp;<code>return Encoding.ASCII.GetBytes(strWriter.ToString());</code><br />
-                    <code>}</code><br />
+                    <code class="prettyprint">{</code><br />
+                    &nbsp;&nbsp;<code class="prettyprint">var strWriter = new StringWriter();</code><br />
+                    &nbsp;&nbsp;<code class="prettyprint">var htmlWriter = new HtmlTextWriter(strWriter);</code><br />
+                    &nbsp;&nbsp;<code class="prettyprint">var gv = new GridView();</code><br />
+                    &nbsp;&nbsp;<code class="prettyprint">gv.DataSource = dt;</code><br />
+                    &nbsp;&nbsp;<code class="prettyprint">gv.DataBind();</code><br />
+                    &nbsp;&nbsp;<code class="prettyprint">gv.RenderControl(htmlWriter);</code><br />
+                    &nbsp;&nbsp;<code class="prettyprint">return Encoding.ASCII.GetBytes(strWriter.ToString());</code><br />
+                    <code class="prettyprint">}</code><br />
                     <br />
                     ...
                     <br />
-                    <code>var file = GenerateExcelSheet(...);</code><br />
-                    <code>Response.Clear();</code><br />
-                    <code>Response.ClearHeaders();</code><br />
-                    <code>Response.ClearContent();</code><br />
-                    <code>Response.ContentType = "application/vnd.ms-excel";</code><br />
-                    <code>Response.AddHeader("content-disposition", "attachment; filename=.xls");</code><br />
-                    <code>Response.AddHeader("Content-Length", file.Length.ToString());</code><br />
-                    <code>Response.BinaryWrite(file);</code><br />
-                    <code>Response.Flush();</code><br />
+                    <code class="prettyprint">var file = GenerateExcelSheet(...);</code><br />
+                    <code class="prettyprint">Response.Clear();</code><br />
+                    <code class="prettyprint">Response.ClearHeaders();</code><br />
+                    <code class="prettyprint">Response.ClearContent();</code><br />
+                    <code class="prettyprint">Response.ContentType = "application/vnd.ms-excel";</code><br />
+                    <code class="prettyprint">Response.AddHeader("content-disposition", "attachment; filename=.xls");</code><br />
+                    <code class="prettyprint">Response.AddHeader("Content-Length", file.Length.ToString());</code><br />
+                    <code class="prettyprint">Response.BinaryWrite(file);</code><br />
+                    <code class="prettyprint">Response.Flush();</code><br />
                 </p>
             </div>
         </div>
@@ -132,18 +133,18 @@
                     sinlge page with all the content, instead of loading the content using JavaScript on the client side. So you would have one page for the HTML of the modal and one page for the JavaScript for the modal. Example:
                     <br />
                     <br />
-                    <code><span class="token punctuation"><</span>script type="text/javascript"<span class="token punctuation">></span></code>
+                    <code class="prettyprint"><span class="token punctuation"><</span>script type="text/javascript"<span class="token punctuation">></span></code>
                     <br />
-                    &nbsp;&nbsp;<code><span class="token punctuation"><</span>!--#include file ="/js/modal.js"--<span class="token punctuation">></span></code>
+                    &nbsp;&nbsp;<code class="prettyprint"><span class="token punctuation"><</span>!--#include file ="/js/modal.js"--<span class="token punctuation">></span></code>
                     <br />
-                    <code><span class="token punctuation"><</span>/script<span class="token punctuation">></span></code>
+                    <code class="prettyprint"><span class="token punctuation"><</span>/script<span class="token punctuation">></span></code>
                     <br />
                     <br />
-                    <code><span class="token punctuation"><</span>div<span class="token punctuation">></span></code>
+                    <code class="prettyprint"><span class="token punctuation"><</span>div<span class="token punctuation">></span></code>
                     <br />
-                    &nbsp;&nbsp;<code><span class="token punctuation"><</span>!--#include file ="/modal.html"--<span class="token punctuation">></span></code>
+                    &nbsp;&nbsp;<code class="prettyprint"><span class="token punctuation"><</span>!--#include file ="/modal.html"--<span class="token punctuation">></span></code>
                     <br />
-                    <code><span class="token punctuation"><</span>/div<span class="token punctuation">></span></code>
+                    <code class="prettyprint"><span class="token punctuation"><</span>/div<span class="token punctuation">></span></code>
                 </p>
             </div>
         </div>
@@ -163,16 +164,16 @@
                     The below function is one way to convert C# DateTime to JavaScript Date using timestamps.
                 </p>
                 <p>
-                    <code>var DatetimeMinTimeTicks = (new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc)).Ticks;</code>
+                    <code class="prettyprint">var DatetimeMinTimeTicks = (new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc)).Ticks;</code>
                     <br />
                     <br />
-                    <code>public static long DateTimeToJavaScriptDate(DateTime dt)</code>
+                    <code class="prettyprint">public static long DateTimeToJavaScriptDate(DateTime dt)</code>
                     <br />
-                    <code>{</code>
+                    <code class="prettyprint">{</code>
                     <br />
-                    <code>&nbsp;&nbsp;return (long)((dt.ToUniversalTime().Ticks - DatetimeMinTimeTicks) / 10000);</code>
+                    <code class="prettyprint">&nbsp;&nbsp;return (long)((dt.ToUniversalTime().Ticks - DatetimeMinTimeTicks) / 10000);</code>
                     <br />
-                    <code>}</code>
+                    <code class="prettyprint">}</code>
                 </p>
             </div>
         </div>
@@ -197,27 +198,27 @@
                     If you go to the migration file Entity Framework generated, you will see smething like this
                     <br />
                     <br />
-                    <code>public override void Up()</code><br />
-                    <code>{</code><br />
-                    <code>&nbsp;&nbsp;AddColumn(..., "ReviewId", c => c.Int(nullable: false, identity: true));</code><br />
-                    <code>&nbsp;&nbsp;DropPrimaryKey(..., new[] { "Id" });</code><br />
-                    <code>&nbsp;&nbsp;AddPrimaryKey(..., new[] { "ReviewId" });</code><br />
-                    <code>&nbsp;&nbsp;DropColumn(..., "Id");</code><br />
-                    <code>&nbsp;&nbsp;...</code><br />
-                    <code>}</code><br />
+                    <code class="prettyprint">public override void Up()</code><br />
+                    <code class="prettyprint">{</code><br />
+                    <code class="prettyprint">&nbsp;&nbsp;AddColumn(..., "ReviewId", c => c.Int(nullable: false, identity: true));</code><br />
+                    <code class="prettyprint">&nbsp;&nbsp;DropPrimaryKey(..., new[] { "Id" });</code><br />
+                    <code class="prettyprint">&nbsp;&nbsp;AddPrimaryKey(..., new[] { "ReviewId" });</code><br />
+                    <code class="prettyprint">&nbsp;&nbsp;DropColumn(..., "Id");</code><br />
+                    <code class="prettyprint">&nbsp;&nbsp;...</code><br />
+                    <code class="prettyprint">}</code><br />
                     <br />
                     This might look OK since you are dropping the primary key and then adding a new one but the trick is that you need
                     to drop the primary key and the column as well. So reordering the operations like this will work:
                     <br />
                     <br />
-                    <code>public override void Up()</code><br />
-                    <code>{</code><br />
-                    <code>&nbsp;&nbsp;DropPrimaryKey(..., new[] { "Id" });</code><br />
-                    <code>&nbsp;&nbsp;DropColumn(..., "Id");</code><br />
-                    <code>&nbsp;&nbsp;AddColumn(..., "ReviewId", c => c.Int(nullable: false, identity: true));</code><br />
-                    <code>&nbsp;&nbsp;AddPrimaryKey(..., new[] { "ReviewId" });</code><br />
-                    <code>&nbsp;&nbsp;...</code><br />
-                    <code>}</code><br />
+                    <code class="prettyprint">public override void Up()</code><br />
+                    <code class="prettyprint">{</code><br />
+                    <code class="prettyprint">&nbsp;&nbsp;DropPrimaryKey(..., new[] { "Id" });</code><br />
+                    <code class="prettyprint">&nbsp;&nbsp;DropColumn(..., "Id");</code><br />
+                    <code class="prettyprint">&nbsp;&nbsp;AddColumn(..., "ReviewId", c => c.Int(nullable: false, identity: true));</code><br />
+                    <code class="prettyprint">&nbsp;&nbsp;AddPrimaryKey(..., new[] { "ReviewId" });</code><br />
+                    <code class="prettyprint">&nbsp;&nbsp;...</code><br />
+                    <code class="prettyprint">}</code><br />
                 </p>
             </div>
         </div>
@@ -235,13 +236,13 @@
                     web controls. A web control like
                     <br />
                     <br />
-                    <code><span class="token punctuation"><</span>asp:HiddenField ID="hf1"<span class="token punctuation">></span></code>
+                    <code class="prettyprint"><span class="token punctuation"><</span>asp:HiddenField ID="hf1"<span class="token punctuation">></span></code>
                     <br />
                     <br />
                     can have a ID like
                     <br/>
                     <br />
-                    <code>ct100_HiddenField1_hf1</code>
+                    <code class="prettyprint">ct100_HiddenField1_hf1</code>
                     <br />
                     <br />
                 </p>
@@ -253,7 +254,7 @@
                     ASP.NET however does offer the ClientID value for web controls. So this can be solved easily by using server side code blocks to inject the ID into JavaScript or JQuery, example:
                     <br />
                     <br />
-                    <code>$('#<%= hf1.ClientID %>').val();</code>
+                    <code class="prettyprint">$('#<%= hf1.ClientID %>').val();</code>
                     <br />
                 </p>
             </div>
