@@ -50,6 +50,51 @@
             </div>
             <br />
             <div class="col-md-8 col-md-offset-2">
+                <a data-toggle="collapse" href="#collapse7" aria-expanded="false" aria-controls="collapse7" class="black">
+                    <h4>Mixing Angular JS expressions and Razor</h4>
+                </a>
+                <div class="collapse" id="collapse7">
+                    <br />
+                    <p>
+                        Although it is not recommended to mix Angular and Razor in a view, sometimes you just have to. One thing
+                        to keep in mind is that Angular is a client side framework while Razor is server side which means
+                        Razor is evaluated first.
+                    </p>
+                    <p>
+                        One potential pitfall would be common Url helpers ASP.NET MVC provides, for example the <code>Url.Action</code>
+                        method. If I did:
+                    </p>
+                    <p>
+                        <code>@{</code><br />
+                        <code>var url = Url.Action("{{ action.name }}", "Dashboards");</code><br />
+                        <code>}</code><br />
+                    </p>
+                    <p>
+                        And try to click on the link generated, it would produce a 404 error. Because Angular is evaluated
+                        after Razor, what is passsed into <code>Url.Action</code> is <code>{{ action.name }}</code> instead of the
+                        correct value retrieved from Angular. Another problem is <code>Url.Action</code> actually encodes the url
+                        so <code>{</code> and <code>}</code> becomes <code>%7B</code> and <code>%7D</code>
+                    </p>
+                    <p>
+                        To work around this we need to first decode the url and then pass the url into Angular's <code>ng-href</code>
+                    </p>
+                    <p>
+                        <code>@{</code><br />
+                        <code>var url = Url.Action("{{ action.name }}", "Dashboards");</code><br />
+                        <code>url = url = HttpUtility.UrlDecode(url);</code><br />
+                        <code>}</code><br />
+                        ...
+                        <code><a ng-href="@url">...</a></code>
+                    </p>
+                    <p>
+                        This will work. So what's happening is, first the Razor will produce a url with <code>{{ action.name }}</code> in it.
+                        Then once that is passed to the client, Angular will replace <code>{{ action.name }}</code> with the correct value
+                        in the url.
+                    </p>
+                </div>
+            </div>
+            <br />
+            <div class="col-md-8 col-md-offset-2">
                 <a data-toggle="collapse" href="#collapse6" aria-expanded="false" aria-controls="collapse6" class="black">
                     <h4>Create excel file with C# without Interop or Excel</h4>
                 </a>
