@@ -66,7 +66,7 @@
                     </p>
                     <p>
                         <code class="prettyprint">@{</code><br />
-                        <code class="prettyprint">var url = Url.Action("{{ action.name }}", "Dashboards");</code><br />
+                        &nbsp;&nbsp;<code class="prettyprint">var url = Url.Action("{{ action.name }}", "Dashboards");</code><br />
                         <code class="prettyprint">}</code><br />
                     </p>
                     <p>
@@ -80,11 +80,12 @@
                     </p>
                     <p>
                         <code class="prettyprint">@{</code><br />
-                        <code class="prettyprint">var url = Url.Action("{{ action.name }}", "Dashboards");</code><br />
-                        <code class="prettyprint">url = url = HttpUtility.UrlDecode(url);</code><br />
+                        &nbsp;&nbsp;<code class="prettyprint">var url = Url.Action("{{ action.name }}", "Dashboards");</code><br />
+                        &nbsp;&nbsp;<code class="prettyprint">url = url = HttpUtility.UrlDecode(url);</code><br />
                         <code class="prettyprint">}</code><br />
-                        ...
+                        ...<br />
                         <code class="prettyprint"><span class="token punctuation"><</span>a ng-href="@url"<span class="token punctuation">></span>...</code>
+                        <br />
                     </p>
                     <p>
                         This will work. So what's happening is, first the Razor will produce a url with <code>{{ action.name }}</code> in it.
