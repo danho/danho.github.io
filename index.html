@@ -65,9 +65,9 @@
                         method. If I did:
                     </p>
                     <p>
-                        <code>@{</code><br />
-                        <code>var url = Url.Action("{{ action.name }}", "Dashboards");</code><br />
-                        <code>}</code><br />
+                        <code class="prettyprint">@{</code><br />
+                        <code class="prettyprint">var url = Url.Action("{{ action.name }}", "Dashboards");</code><br />
+                        <code class="prettyprint">}</code><br />
                     </p>
                     <p>
                         And try to click on the link generated, it would produce a 404 error. Because Angular is evaluated
@@ -79,12 +79,12 @@
                         To work around this we need to first decode the url and then pass the url into Angular's <code>ng-href</code>
                     </p>
                     <p>
-                        <code>@{</code><br />
-                        <code>var url = Url.Action("{{ action.name }}", "Dashboards");</code><br />
-                        <code>url = url = HttpUtility.UrlDecode(url);</code><br />
-                        <code>}</code><br />
+                        <code class="prettyprint">@{</code><br />
+                        <code class="prettyprint">var url = Url.Action("{{ action.name }}", "Dashboards");</code><br />
+                        <code class="prettyprint">url = url = HttpUtility.UrlDecode(url);</code><br />
+                        <code class="prettyprint">}</code><br />
                         ...
-                        <code><a ng-href="@url">...</a></code>
+                        <code class="prettyprint"><a ng-href="@url" ...</code>
                     </p>
                     <p>
                         This will work. So what's happening is, first the Razor will produce a url with <code>{{ action.name }}</code> in it.
