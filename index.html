@@ -50,6 +50,42 @@
             </div>
             <br />
             <div class="col-md-8 col-md-offset-2">
+                <a data-toggle="collapse" href="#collapse8" aria-expanded="false" aria-controls="collapse8" class="black">
+                    <h4>Using Angular scope hierarchies to display different background images</h4>
+                </a>
+                <div class="collapse" id="collapse8">
+                    <br />
+                    <p>
+                        To set a background image that fills up the screen in JQuery:
+                    </p>
+                    <p>
+                        <code class="prettyprint">$("body").css("background-image", "url('...')");</code><br />
+                    </p>
+                    <p>
+                        But the problem is if you are using this in an Angular function, the function would run when Angular
+                        finished loadign which means the backgroudn image does not always show up before the text boxes, etc.
+                        One thing I can do is to put the JQuery in Angular's routeChangeSuccess function to run the JQuery once the routing
+                        is successful.
+                    </p>
+                    <p>
+                        This works but I don't want to rely on JQuery as much when I am using Angular. One interesting solution
+                        is to use Angular scope hierarchies to update the parent scope's background image. So if I was using a ng-view,
+                        the HTML would be like:
+                    </p>
+                    <p>
+                        <code class="prettyprint"><body ng-controller="GreetController"></code><br />
+                        <code class="prettyprint"><div ng-view></div></code><br />
+                        <code class="prettyprint"></body></code><br />
+                    </p>
+                    <p>
+                        And in the controller, I would access the parent controller and set the background image:
+                    </p>
+                    <p>
+                        <code class="prettyprint">$scope.$parent.backgrounImg = ...</code><br />
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-8 col-md-offset-2">
                 <a data-toggle="collapse" href="#collapse7" aria-expanded="false" aria-controls="collapse7" class="black">
                     <h4>Mixing Angular JS expressions and Razor</h4>
                 </a>
