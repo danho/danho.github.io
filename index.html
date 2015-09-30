@@ -63,8 +63,8 @@
                     </p>
                     <p>
                         But the problem is if you are using this in an Angular function, the function would run when Angular
-                        finished loadign which means the backgroudn image does not always show up before the text boxes, etc.
-                        One thing I can do is to put the JQuery in Angular's routeChangeSuccess function to run the JQuery once the routing
+                        finished loading which means the background image does not always show up before the text boxes, etc.
+                        One thing you can do is to put the JQuery in Angular's routeChangeSuccess function to run the JQuery once the routing
                         is successful.
                     </p>
                     <p>
@@ -73,9 +73,9 @@
                         the HTML would be like:
                     </p>
                     <p>
-                        <code class="prettyprint"><body ng-controller="GreetController"></code><br />
-                        <code class="prettyprint"><div ng-view></div></code><br />
-                        <code class="prettyprint"></body></code><br />
+                        <code class="prettyprint"><span class="token punctuation"><</span>body ng-controller="GreetController"<span class="token punctuation">></span></code><br />
+                        <code class="prettyprint"><span class="token punctuation"><</span>div ng-view<span class="token punctuation">></span><span class="token punctuation"><</span>/div<span class="token punctuation">></span></code><br />
+                        <code class="prettyprint"><span class="token punctuation"><</span>/body<span class="token punctuation">></span></code><br />
                     </p>
                     <p>
                         And in the controller, I would access the parent controller and set the background image:
