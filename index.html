@@ -50,6 +50,31 @@
             </div>
             <br />
             <div class="col-md-8 col-md-offset-2">
+                <a data-toggle="collapse" href="#collapse9" aria-expanded="false" aria-controls="collapse9" class="black">
+                    <h4>Angular JS performance ng-bind vs expressions</h4>
+                </a>
+                <div class="collapse" id="collapse9">
+                    <p>
+                        In the Angular JS docs and across the web you mostly see expressions being used to display text from a model, for example:
+                    </p>
+                    <p>
+                        <code class="prettyprint">Hello {{ model.Name }}</code>
+                    </p>
+                    <p>
+                        The same can be achieved with <code class="prettyprint">ng-bind</code>:
+                    </p>
+                    <p>
+                        <code class="prettyprint">Hello <span class="token punctuation"><</span<span class="token punctuation">></span>span ng-bind="model.Name"<span class="token punctuation">></span><span class="token punctuation"><</span>/span<span class="token punctuation">></span>
+                    </p>
+                    <p>
+                        One big difference between the two is performance. With <code class="prettyprint">ng-bind</code> we are using a
+                        directive. With directives, a watch is put on the corresponding model attribute and <code class="prettyprint">ng-bind</code>
+                        will only update when the watch detects a change. Expressions on the other hand will be checked in every digest cycle which
+                        is pretty much anything that changes in your Angular app.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-8 col-md-offset-2">
                 <a data-toggle="collapse" href="#collapse8" aria-expanded="false" aria-controls="collapse8" class="black">
                     <h4>Using Angular scope hierarchies to display different background images</h4>
                 </a>
