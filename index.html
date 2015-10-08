@@ -58,13 +58,13 @@
                         In the Angular JS docs and across the web you mostly see expressions being used to display text from a model, for example:
                     </p>
                     <p>
-                        <code class="prettyprint">Hello {{ model.Name }}</code>
+                        <code class="prettyprint">Hello {{ Name }}</code>
                     </p>
                     <p>
                         The same can be achieved with <code class="prettyprint">ng-bind</code>:
                     </p>
                     <p>
-                        <code class="prettyprint">Hello <span class="token punctuation"><</span>span ng-bind="model.Name"<span class="token punctuation">></span><span class="token punctuation"><</span>/span<span class="token punctuation">></span></code>
+                        <code class="prettyprint">Hello <span class="token punctuation"><</span>span ng-bind="Name"<span class="token punctuation">></span><span class="token punctuation"><</span>/span<span class="token punctuation">></span></code>
                     </p>
                     <p>
                         One big difference between the two is performance. With <code class="prettyprint">ng-bind</code> we are using a
@@ -79,7 +79,6 @@
                     <h4>Using Angular scope hierarchies to display different background images</h4>
                 </a>
                 <div class="collapse" id="collapse8">
-                    <br />
                     <p>
                         To set a background image that fills up the screen in JQuery:
                     </p>
