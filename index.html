@@ -50,6 +50,29 @@
             </div>
             <br />
             <div class="col-md-8 col-md-offset-2">
+                <a data-toggle="collapse" href="#collapse11" aria-expanded="false" aria-controls="collapse11" class="black">
+                    <h4>Adding extra security to Session State in ASP.NET MVC</h4>
+                </a>
+                <div class="collapse" id="collapse11">
+                    <br />
+                    <p>
+                        In ASP.NET MVC using Session State is not recommended, since ASP.NET MVC is designed as
+                        a stateless framework. But of course there will be exceptions where you will want to use
+                        Session State to keep track of sensitive information.
+                    </p>
+                    <p>
+                        ASP.NET MVC allows you to have more refined control of Session State through the <code class="prettyprint">SessionState</code>
+                        attribute. More specifically, using the <code class="prettyprint">SessionStateBehavior.Disabled</code> and <code class="prettyprint">SessionStateBehavior.ReadOnly</code>
+                        enumerators to disallow or only allow read only access to Session State.
+                    </p>
+                    <p>
+                        For example you have a number of controllers that you want to allow access to Session State to retrieve
+                        sensitive information (e.g. User Accoutn specific controllers) but all other controllers should not be able to read or update Session State.
+                    </p>
+                </div>
+            </div>
+            <br />
+            <div class="col-md-8 col-md-offset-2">
                 <a data-toggle="collapse" href="#collapse10" aria-expanded="false" aria-controls="collapse10" class="black">
                     <h4>Great website to transform JSON to C# classes</h4>
                 </a>
