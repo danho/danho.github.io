@@ -55,6 +55,35 @@
             <br />
             <div class="col-md-8 col-md-offset-2">
                 <a class="black">
+                    <h4>reCAPTCHA and AngularJS SPA</h4>
+                </a>
+                <div>
+                    <br />
+                    <p>
+                        I was getting javascript exxeptions using reCAPTCHA in an AngularJS app when using more than one reCAPTCHA. More specifically,
+                        Cannot read property 'value' of null. Looked more into it and did some research, reCAPTCHA is trying to find the response, with the
+                        ID g-recaptcha-response.
+                    </p>
+                    <p>
+                        Because AngularJS SPA refreshes the page instead of redirecting, the response ID is forced to increment instead of getting replaced, e.g.
+                        the second reCAPTCHA will have the ID of g-recaptcha-response-1.
+                    </p>
+                    <p>
+                        So to fix this issue, the ID of the response needs to be passed to the getResponse method. The ID can be passed as the widgetId.
+                    </p>
+                    <p>
+                        <code class="prettyprint"><span class="token punctuation"><</span>div class="g-recaptcha" data-sitekey="your_site_key" on-create="SetReCAPTCHAId(widgetId)"<span class="token punctuation">></span><span class="token punctuation"><</span>/div<span class="token punctuation">></span></code>
+                        <code class="prettyprint">$scope.SetReCAPTCHAId = function(widgetId) {</code>
+                        &nbsp;&nbsp;<code class="prettyprint">$scope.reCAPTCHAId = widgetId;</code>
+                        <code class="prettyprint">};</code>
+                        <code class="prettyprint">...</code>
+                        <code class="prettyprint">var response = grecaptcha.getResponse($scope.reCAPTCHAId);</code>
+                    </p>
+                </div>
+            </div>
+            <br />
+            <div class="col-md-8 col-md-offset-2">
+                <a class="black">
                     <h4>Adding extra security to Session State in ASP.NET MVC</h4>
                 </a>
                 <div>
