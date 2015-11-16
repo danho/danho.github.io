@@ -72,12 +72,12 @@
                         So to fix this issue, the ID of the response needs to be passed to the getResponse method. The ID can be passed as the widgetId.
                     </p>
                     <p>
-                        <code class="prettyprint"><span class="token punctuation"><</span>div class="g-recaptcha" data-sitekey="your_site_key" on-create="SetReCAPTCHAId(widgetId)"<span class="token punctuation">></span><span class="token punctuation"><</span>/div<span class="token punctuation">></span></code>
-                        <code class="prettyprint">$scope.SetReCAPTCHAId = function(widgetId) {</code>
-                        &nbsp;&nbsp;<code class="prettyprint">$scope.reCAPTCHAId = widgetId;</code>
-                        <code class="prettyprint">};</code>
-                        <code class="prettyprint">...</code>
-                        <code class="prettyprint">var response = grecaptcha.getResponse($scope.reCAPTCHAId);</code>
+                        <code class="prettyprint"><span class="token punctuation"><</span>div class="g-recaptcha" data-sitekey="your_site_key" on-create="SetReCAPTCHAId(widgetId)"<span class="token punctuation">></span><span class="token punctuation"><</span>/div<span class="token punctuation">></span></code><br /><br />
+                        <code class="prettyprint">$scope.SetReCAPTCHAId = function(widgetId) {</code><br />
+                        &nbsp;&nbsp;<code class="prettyprint">$scope.reCAPTCHAId = widgetId;</code><br />
+                        <code class="prettyprint">};</code><br />
+                        <code class="prettyprint">...</code><br />
+                        <code class="prettyprint">var response = grecaptcha.getResponse($scope.reCAPTCHAId);</code><br />
                     </p>
                 </div>
             </div>
