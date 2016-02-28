@@ -25,42 +25,6 @@
     <body>
         <div class="container">
             <div class="col-md-8 col-md-offset-2">
-                <a class="black">
-                    <h4>Solution to poor performance with LINQ and varchar indexed SQL Server table</h4>
-                </a>
-                <div>
-                    <br />
-                    <p>
-                        LINQ generates SQL statements and SQL Server runs them so usually poor performance in LINQ is because of
-                        a poor design in SQL Server. However there are times where I get stumped on why LINQ is performing so poorly
-                        in C# but runs fast when I run the same SQL statement generated on SQL Server. One occurance is when a large table (e.g. more than 
-                        a million records), for example a People table is indexed on a varchar column, for example the FirstName column. A
-                        simple select query in LINQ will run extremely slow, for example
-                    </p>
-                    <p>
-                        <code class="prettyprint">DbContext.People.Where(p => p.FirstName.contains("Dan").ToList();</code>
-                    </p>
-                    <p>
-                        Using the database log to log the SQL generated and the parameters,
-                    </p>
-                    <p>
-                        <code class="prettyprint">context.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);</code>
-                    </p>
-                    <p>
-                        You will see the SQL statement expected and the parameter "Dan" as an ANSI string.
-                    </p>
-                    <p>
-                        However this is misleading, the parameter passed from LINQ to SQL server will default be Unicode string not an
-                        ANSI string! Because the table is indexed via a varchar, passing in a Unicode string will result in a index scan (sequential 
-                        scanning) which is slow. To fix this you can use the DbFunctions.AsNonUnicode method to force LINQ to pass a ANSI string
-                        instead.
-                    </p>
-                    <p>
-                        <code class="prettyprint">DbContext.People.Where(p => p.FirstName.contains(DbFunctions.AsNonUnicode("Dan")).ToList();</code>
-                    </p>
-                </div>
-            </div>
-            <div class="col-md-8 col-md-offset-2">
                 <div class="row">
                     <nav class="navbar navbar-clear navbar-padding">
                         <div class="navbar-header">
@@ -89,6 +53,42 @@
                 </div>
             </div>
             <br />
+            <div class="col-md-8 col-md-offset-2">
+                <a class="black">
+                    <h4>Solution to poor performance with LINQ and varchar indexed SQL Server table</h4>
+                </a>
+                <div>
+                    <br />
+                    <p>
+                        LINQ generates SQL statements and SQL Server runs them so usually poor performance in LINQ is because of
+                        a poor design in SQL Server. However there are times where I get stumped on why LINQ is performing so poorly
+                        in C# but runs fast when I run the same SQL statement generated on SQL Server. One occurance is when a large table (e.g. more than 
+                        a million records), for example a People table is indexed on a varchar column, for example the FirstName column. A
+                        simple select query in LINQ will run extremely slow, for example
+                    </p>
+                    <p>
+                        <code class="prettyprint">DbContext.People.Where(p => p.FirstName.contains("Dan")).ToList();</code>
+                    </p>
+                    <p>
+                        Using the database log to log the SQL generated and the parameters,
+                    </p>
+                    <p>
+                        <code class="prettyprint">DbContext.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);</code>
+                    </p>
+                    <p>
+                        You will see the SQL statement expected and the parameter "Dan" as an ANSI string.
+                    </p>
+                    <p>
+                        However this is misleading, the parameter passed from LINQ to SQL server will default be Unicode string not an
+                        ANSI string! Because the table is indexed via a varchar, passing in a Unicode string will result in a index scan (sequential 
+                        scanning) which is slow. To fix this you can use the DbFunctions.AsNonUnicode method to force LINQ to pass a ANSI string
+                        instead.
+                    </p>
+                    <p>
+                        <code class="prettyprint">DbContext.People.Where(p => p.FirstName.contains(DbFunctions.AsNonUnicode("Dan"))).ToList();</code>
+                    </p>
+                </div>
+            </div>
             <div class="col-md-8 col-md-offset-2">
                 <a class="black">
                     <h4>reCAPTCHA and AngularJS SPA</h4>
