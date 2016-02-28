@@ -80,8 +80,8 @@
                     </p>
                     <p>
                         However this is misleading, the parameter passed from LINQ to SQL server will default be Unicode string not an
-                        ANSI string! Because the table is indexed via a varchar, passing in a Unicode string will result in a index scan (sequential 
-                        scanning) which is slow. To fix this you can use the DbFunctions.AsNonUnicode method to force LINQ to pass a ANSI string
+                        ANSI string! A varchar column cannot read unicode. Because the table is indexed via a varchar, passing in a Unicode string will result in a index scan (sequential 
+                        scanning) which is slow, instead of using the index on the column. To fix this you can use the DbFunctions.AsNonUnicode method to force LINQ to pass a ANSI string
                         instead.
                     </p>
                     <p>
